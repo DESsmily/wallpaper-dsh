@@ -1,0 +1,8 @@
+# dsh-wallpaper bundle patch：把主题管理插件挂进 web 组合。
+#
+# host 半（exports "."：壁纸扫描 + 媒体路由）与 client 半（exports "./client"：
+# 设置弹框「主题管理」页面 + 全局壁纸层）都由官方 bundle 流程按 package.json 的
+# `dsh.bundle.patch` / `dsh.client` 声明解析，无需手动双 entry。
+- insert:
+    - id: dsh-wallpaper
+      name: 'dsh-wallpaper'

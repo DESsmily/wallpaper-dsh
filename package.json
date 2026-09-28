@@ -1,0 +1,49 @@
+{
+  "name": "dsh-wallpaper",
+  "version": "0.1.0",
+  "description": "DSH Web 主题管理插件：在设置弹框中新增「主题管理」页面，支持自定义壁纸、本地图片文件夹、单个图片/视频文件、图片 URL，以及扫描 Wallpaper Engine 工坊壁纸库；壁纸铺满页面并将界面调成半透明",
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node test-scan.mjs && node test-host.mjs && node test-client.mjs"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "theme",
+    "wallpaper",
+    "wallpaper-engine",
+    "web-ui"
+  ],
+  "license": "MIT",
+  "engines": {
+    "dsh": ">=0.1.5"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  }
+}
